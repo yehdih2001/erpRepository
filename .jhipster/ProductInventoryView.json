@@ -1,0 +1,55 @@
+{
+    "name": "ProductInventoryView",
+    "fields": [
+        {
+            "fieldName": "weightInKg",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "volumeInMetercube",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "descriptionForDeliveryOrders",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "descriptionForReceipts",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "customerLeadTime",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "product",
+            "otherEntityName": "product",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "productInventoryView"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "responsible",
+            "otherEntityName": "appUser",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "productInventoryView"
+        }
+    ],
+    "changelogDate": "20181219003017",
+    "entityTableName": "product_inventory_view",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "erp",
+    "applications": "*",
+    "microserviceName": "erp"
+}

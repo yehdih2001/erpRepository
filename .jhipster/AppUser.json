@@ -1,0 +1,54 @@
+{
+    "name": "AppUser",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "logo",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "active",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "preference",
+            "otherEntityName": "preference",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "appUser"
+        },
+        {
+            "relationshipName": "erp",
+            "otherEntityName": "erp",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181219003013",
+    "entityTableName": "app_user",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "erp",
+    "applications": "*",
+    "microserviceName": "erp"
+}
