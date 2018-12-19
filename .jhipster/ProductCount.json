@@ -1,0 +1,41 @@
+{
+    "name": "ProductCount",
+    "fields": [
+        {
+            "fieldName": "onHand",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "purchased",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "forecasted",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "sold",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "product",
+            "otherEntityName": "productInventoryView",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "productCount"
+        }
+    ],
+    "changelogDate": "20181219003156",
+    "entityTableName": "product_count",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "erp",
+    "applications": "*",
+    "microserviceName": "erp"
+}

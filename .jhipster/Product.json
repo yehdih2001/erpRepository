@@ -1,0 +1,63 @@
+{
+    "name": "Product",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "canBeSold",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "canBePurchased",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "productType",
+            "fieldType": "ProductType",
+            "fieldValues": "Consumable,StorableProduct,Service"
+        },
+        {
+            "fieldName": "productCategory",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "internalReference",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "salesPrice",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "cost",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "barCode",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "internalNotes",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "active",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181219003153",
+    "entityTableName": "product",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "erp",
+    "applications": "*",
+    "microserviceName": "erp"
+}
