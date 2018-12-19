@@ -1,0 +1,112 @@
+entity Compagny {
+	compagnyName String required,
+    website String,
+    logo ImageBlob,
+    street String,
+    street2 String,
+    city String required,
+    state String,
+    zipCode String required minlength(5),
+    country String required minlength(3),
+    phone String,
+    email String,
+    vAT String,
+    compagnyRegistry String,
+    siret String,
+    currency String,
+    defaultIncoterm Incoterm,
+    active Boolean
+}
+
+entity AppUser {
+	name String required,
+	email String required,
+    logo ImageBlob,
+	active Boolean
+}
+
+entity Preference{
+	language String required,
+    notification NotificationManagement,
+    alias String,
+    signature TextBlob
+
+}
+
+
+enum NotificationManagement{
+ ByEmail,
+ Internal
+}
+
+
+
+enum Incoterm {
+    EX_WORKS, FREE_CARRIER, FREE_ALONGSIDE_SHIP,
+    FREE_ON_BOARD,COST_AND_FREIGHT,
+    COST_INSURANCE_AND_FREIGHT,CARRIAGE_PAID_TO
+  }
+
+entity Erp{
+  name String required,
+  created Instant,
+  active Boolean
+}
+
+entity Product{
+    name String,
+	canBeSold Boolean,
+	canBePurchased Boolean,
+	productType ProductType,
+	productCategory String,
+	internalReference String,
+	salesPrice Double,
+    cost Double,
+	barCode Blob,
+    internalNotes TextBlob,
+    active Boolean
+}
+
+entity ProductInventoryView{
+    weightInKg Double,
+    volumeInMetercube Double,
+    descriptionForDeliveryOrders TextBlob,
+    descriptionForReceipts TextBlob,
+    customerLeadTime Integer
+}
+
+entity ProductReodringRules{
+    name String required,
+    minimumQuantity Integer,
+    maximumQuantity Integer,
+    quantityMultiple Integer,
+    leadTime Integer,
+    active Boolean
+}
+
+entity ProductCount{
+    onHand Integer,
+    purchased Integer,
+    forecasted Integer,
+    sold Integer
+}
+
+enum ProductType{
+    Consumable,StorableProduct,Service
+}
+
+// defining multiple oneToOne relationships
+relationship OneToOne {
+    AppUser{preference} to Preference
+    ProductInventoryView{product} to Product,
+    ProductInventoryView{Responsible} to AppUser,
+    ProductCount{product} to ProductInventoryView,
+    ProductReodringRules{product} to ProductInventoryView
+}
+
+relationship OneToMany {
+    Erp{compagnies} to Compagny,
+    Erp{users} to AppUser
+}
+
+
