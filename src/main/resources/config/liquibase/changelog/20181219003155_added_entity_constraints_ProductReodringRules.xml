@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity ProductReodringRules.
+    -->
+    <changeSet id="20181219003155-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="product_id"
+                                 baseTableName="product_reodring_rules"
+                                 constraintName="fk_product_reodring_rules_product_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product_inventory_view"/>
+
+    </changeSet>
+</databaseChangeLog>
