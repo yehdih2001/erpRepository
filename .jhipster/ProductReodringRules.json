@@ -1,0 +1,52 @@
+{
+    "name": "ProductReodringRules",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "minimumQuantity",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "maximumQuantity",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "quantityMultiple",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "leadTime",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "active",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "product",
+            "otherEntityName": "productInventoryView",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "productReodringRules"
+        }
+    ],
+    "changelogDate": "20181219003018",
+    "entityTableName": "product_reodring_rules",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "erp",
+    "applications": "*",
+    "microserviceName": "erp"
+}

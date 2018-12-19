@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity ProductInventoryView.
+    -->
+    <changeSet id="20181219003017-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="product_id"
+                                 baseTableName="product_inventory_view"
+                                 constraintName="fk_product_inventory_view_product_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product"/>
+
+        <addForeignKeyConstraint baseColumnNames="responsible_id"
+                                 baseTableName="product_inventory_view"
+                                 constraintName="fk_product_inventory_view_responsible_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_user"/>
+
+    </changeSet>
+</databaseChangeLog>
